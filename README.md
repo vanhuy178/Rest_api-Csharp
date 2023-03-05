@@ -18,10 +18,16 @@
 
     - ![construct dependency](./image/construct_dependency.png)
 
-    - ![construct dependency](./image/construct_dependency_full.png)
-    
-
+    - ![construct dependency](./image/construc_dependency_full.png)
 - How to register and inject dependency in .NET5
 - How to implement Data Transfer Objects (DTOs)
+
+3. PUT, POST, DELETE
+- How to create resouce with POST 
+- How to validate the values of DTO properties 
+- How to update resources with OUT 
+- How to delete resources with DELETE
+
+
 ## How to implement an in-memory repositoty of resources
 ## How to implement a controller with GET routes to retrieve resources

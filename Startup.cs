@@ -29,6 +29,7 @@ namespace Catalog
         {
             services.AddSingleton<IItemsRepository, InMemItemsRepository>();
 
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -28,5 +28,26 @@ namespace Catalog.Repository
             // to filter a sequence based on a predicate that involves the index of each element.
             return items.Where(item => item.Id == id).SingleOrDefault();
         }
+
+        // POST 
+        public void CreateItem(Item item)
+        {
+            items.Add(item);
+        }
+
+        public void UpdatedItem(Item item)
+        {
+            var index = items.FindIndex(existingItem => existingItem.Id == item.Id);
+            if (index != -1) items[index] = item;
+        }
+
+        public void DeleteItem(Guid id)
+        {
+            var index = items.FindIndex(existing => existing.Id == id);
+            if (index != -1)
+            {
+                items.RemoveAt(index);
+            }
+        }
     }
 }

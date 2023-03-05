@@ -1,7 +1,7 @@
 using System;
 namespace Catalog.Dtos
 {
-    public record ItemDto
+    public record ItemDto // instead class we use record
     {
         public Guid Id { get; init; } // init only properties, instead "private set;"
                                       // You can do this
