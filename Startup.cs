@@ -28,6 +28,8 @@ namespace Catalog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IItemsRepository, InMemItemsRepository>();
+            services.AddSingleton<IOrderRePository, OrderRePository>();
+
 
 
             services.AddControllers();

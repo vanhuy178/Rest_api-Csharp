@@ -14,5 +14,16 @@ namespace Catalog
                 CreatedDate = item.CreatedDate
             };
         }
+
+        public static OrderDto OsDto(this Order order)
+        {
+            return new OrderDto
+            {
+                Id = order.Id,
+                OrderName = order.OrderName,
+                OrdePrice = order.OrdePrice,
+                CreatedDate = order.CreatedDate
+            };
+        }
     }
 }
