@@ -1,33 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Catalog.Repositoty;
+using Catalog.Repository;
 using Catalog.Entities;
 using System;
+using System.Linq;
+using Catalog.Repositories;
+using Catalog.Dtos;
+using Catalog;
 namespace Catalog.Controllers
 {
     [ApiController]
     [Route("items")]
     public class ItemsController : ControllerBase
     {
-        private readonly InMemItemsRepository repositoty;
 
-        public ItemsController()
+        private readonly IItemsRepository repositoty;
+
+        public ItemsController(IItemsRepository repositoty)
         {
-            repositoty = new InMemItemsRepository();
+            this.repositoty = repositoty;
         }
 
         // how to defined the routes 
         // GET /items
         [HttpGet]
-        public IEnumerable<Item> GetItems()
+        public IEnumerable<ItemDto> GetItems()
         {
-            var items = repositoty.GetItems();
+            var items = repositoty.GetItems().Select(item => item.AsDto());
             return items;
         }
 
         // GET item/id
         [HttpGet("{id}")]
-        public ActionResult<Item> GetItem(Guid id)
+        public ActionResult<ItemDto> GetItem(Guid id)
         {
             var item = repositoty.GetItem(id);
 
@@ -35,7 +40,7 @@ namespace Catalog.Controllers
             {
                 return NotFound();
             }
-            return item;
+            return item.AsDto();
         }
     }
 }
